@@ -1,13 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const Greeting = () => {
-  return <h1>Hi, Mom!</h1>
-}
+const App = () => {
+  return (
+    <div>
+      <Button />
+      <Paragraph />
+    </div>
+  );
+};
 
-const container = document.getElementById('id');
+const Button = () => {
+  return <button type="button">Button</button>;
+};
+
+const Paragraph = () => {
+  return (
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatem.
+    </p>
+  );
+};
+
+const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
 
-root.render(<Greeting/>);
-
-export default Greeting;
+root.render(<App />);
