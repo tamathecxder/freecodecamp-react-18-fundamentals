@@ -36,11 +36,28 @@ const BookList = () => {
     },
   ];
 
+  const generateRandomString = (length) => {
+    let result = "";
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  };
+
+  const newBooks = books.map((book, index) => ({
+    ...book,
+    id: generateRandomString(9) + (index + 1),
+  }));
+
   return (
     <section className="booklist">
-      {books.map((value) => {
+      {newBooks.map((value) => {
+        console.log(value);
         return (
-          <Book title={value.title} author={value.author} image={value.image} />
+          <Book key={value.id} title={value.title} author={value.author} image={value.image} />
         );
       })}
     </section>
@@ -62,5 +79,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-export default App;
