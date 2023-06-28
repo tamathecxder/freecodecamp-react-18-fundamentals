@@ -3,16 +3,13 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 
-const Book = (props) => {
-  const title = props.title;
-  const author = props.author;
-  const image = props.image;
-
+const Book = ({ title, author, image, children }) => {
   return (
     <article className="book">
       <img src={image} alt={title} />
       <h2>{title}</h2>
       <h4>{author.toUpperCase()}</h4>
+      {children}
     </article>
   );
 };
@@ -42,7 +39,9 @@ const BookList = () => {
         title={firstBook.title}
         author={firstBook.author}
         image={firstBook.image}
-      />
+      >
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero nobis molestias debitis repellat, dolor hic.</p>
+      </Book>
       <Book
         title={secondBook.title}
         author={secondBook.author}
@@ -67,6 +66,10 @@ const App = () => {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<App />);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
 export default App;
