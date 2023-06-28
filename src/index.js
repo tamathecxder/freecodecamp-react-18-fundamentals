@@ -1,24 +1,56 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const App = () => {
+import "./index.css";
+
+const Image = () => {
   return (
-    <div>
-      <Button />
-      <Paragraph />
-    </div>
+    <img
+      src="https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg"
+      alt="Atomic Habits"
+    />
   );
 };
 
-const Button = () => {
-  return <button type="button">Button</button>;
+const Title = () => {
+  return <h2>Atomic Habits</h2>;
 };
 
-const Paragraph = () => {
+const Author = () => {
+  const inlineHeadingStyles = {
+    color: "#617d98",
+    fontSize: "0.75rem",
+    marginTop: "0.5rem",
+  };
+
+  return <h4 style={inlineHeadingStyles}>James Clear</h4>;
+};
+
+const Book = () => {
   return (
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, voluptatem.
-    </p>
+    <article className="book">
+      <Image />
+      <Title />
+      <Author />
+    </article>
+  );
+};
+
+const BookList = () => {
+  return (
+    <section className="booklist">
+      <Book />
+      <Book />
+      <Book />
+    </section>
+  );
+};
+
+const App = () => {
+  return (
+    <>
+      <BookList />
+    </>
   );
 };
 
@@ -26,3 +58,5 @@ const container = document.getElementById("root");
 const root = ReactDOM.createRoot(container);
 
 root.render(<App />);
+
+export default App;
