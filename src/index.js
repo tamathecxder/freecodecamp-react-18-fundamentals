@@ -3,7 +3,8 @@ import ReactDOM from "react-dom/client";
 
 import "./index.css";
 
-const Book = ({ title, author, image, children }) => {
+const Book = (props) => {
+  const { title, author, image, children } = props;
   return (
     <article className="book">
       <img src={image} alt={title} />
@@ -54,10 +55,9 @@ const BookList = () => {
 
   return (
     <section className="booklist">
-      {newBooks.map((value) => {
-        console.log(value);
+      {newBooks.map((book) => {
         return (
-          <Book key={value.id} title={value.title} author={value.author} image={value.image} />
+          <Book {...book} key={book.id}  />
         );
       })}
     </section>
