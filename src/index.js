@@ -19,6 +19,7 @@ const generateRandomString = (length) => {
 const newBooks = books.map((book, index) => ({
   ...book,
   id: generateRandomString(9) + (index + 1),
+  position: index + 1,
 }));
 
 const BookList = () => {
@@ -28,11 +29,14 @@ const BookList = () => {
   };
 
   return (
-    <section className="booklist">
-      {newBooks.map((book) => {
-        return <Book {...book} getBook={getBook} key={book.id} />;
-      })}
-    </section>
+    <>
+      <h1 className="main-title">Amazon Best Seller</h1>
+      <section className="booklist">
+        {newBooks.map((book) => {
+          return <Book {...book} getBook={getBook} key={book.id} />;
+        })}
+      </section>
+    </>
   );
 };
 

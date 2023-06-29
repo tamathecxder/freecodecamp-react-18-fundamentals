@@ -24,11 +24,20 @@ body {
   }
 }
 
+.main-title {
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 4rem auto;
+}
+
 .book {
   background: #fff;
   border-radius: 1rem;
   padding: 2rem;
   text-align: center;
+  position: relative;
 }
 
 .book img {
@@ -46,4 +55,20 @@ body {
   font-size: 0.75rem;
   margin-top: 0.5rem;
   letter-spacing: 2px;
+}
+
+.book .number-wrapper {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 30px;
+  background-color: rgba(223, 119, 60, 0.879);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 6px 0 6px 0;
+}
+
+.book .number-wrapper span {
+  color: #fff;
 }
