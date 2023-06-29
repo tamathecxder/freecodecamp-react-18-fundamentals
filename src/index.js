@@ -1,25 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Book from "./components/Book";
+import { books } from "./data/books";
 
 import "./index.css";
-
-const Book = (props) => {
-  const { title, author, image, getBook, id } = props;
-
-  // const handleBook = () => {
-  //   getBook(id);
-  // };
-
-  return (
-    <article className="book">
-      <img src={image} alt={title} />
-      <h2>{title}</h2>
-      {/* <button onClick={handleBook}>Show Title</button> */}
-      <button onClick={() => getBook(id)}>Show Title</button>
-      <h4>{author.toUpperCase()}</h4>
-    </article>
-  );
-};
 
 const generateRandomString = (length) => {
   let result = "";
@@ -32,32 +16,10 @@ const generateRandomString = (length) => {
   return result;
 };
 
-const books = [
-  {
-    title: "Atomic Habits",
-    author: "James Clear",
-    image:
-      "https://images-na.ssl-images-amazon.com/images/I/81bGKUa1e0L._AC_UL600_SR600,400_.jpg",
-  },
-  {
-    title: "Iron Flame",
-    author: "Rebecca Yaros",
-    image:
-      "https://images-na.ssl-images-amazon.com/images/I/A1bc9KkHtsL._AC_UL600_SR600,400_.jpg",
-  },
-  {
-    title: "The Covenant Of Water",
-    author: "Abraham Verghese",
-    image:
-      "https://images-na.ssl-images-amazon.com/images/I/91b7tm523VL._AC_UL600_SR600,400_.jpg",
-  },
-];
-
 const newBooks = books.map((book, index) => ({
   ...book,
   id: generateRandomString(9) + (index + 1),
 }));
-
 
 const BookList = () => {
   const getBook = (id) => {
