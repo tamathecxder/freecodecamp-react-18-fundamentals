@@ -15,6 +15,48 @@ const Book = (props) => {
   );
 };
 
+const EventExamples = () => {
+  const handleFormInput = (event) => {
+    // 
+  };
+
+  const handleButtonClick = () => {
+    alert("Hi, Mom!");
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    console.log("Form is submitted");
+  }
+
+  return (
+    <section>
+      <form onSubmit={handleFormSubmit}>
+        <h2>Typical Input</h2>
+        <input
+          type="text"
+          name="example"
+          id="example"
+          style={{ margin: "1rem 0" }}
+          onChange={handleFormInput}
+        />
+        <button type="submit">
+          Submit
+        </button>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <button type="button" onClick={handleButtonClick}>
+            Click 1
+          </button>
+          <button type="button" onClick={() => console.log("Arrow function callback")}>
+            Click 2
+          </button>
+        </div>
+      </form>
+    </section>
+  );
+};
+
 const BookList = () => {
   const books = [
     {
@@ -55,10 +97,9 @@ const BookList = () => {
 
   return (
     <section className="booklist">
+      <EventExamples />
       {newBooks.map((book) => {
-        return (
-          <Book {...book} key={book.id}  />
-        );
+        return <Book {...book} key={book.id} />;
       })}
     </section>
   );
